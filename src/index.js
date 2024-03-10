@@ -7,6 +7,14 @@ dotenv.config({
 })
 
 connectDB()
+.then(() => {
+    app.listen(process.env.PORT || 8000, () => {
+        console.log(`running on port: ${process.env.PORT}`);
+    })
+})
+.catch((err) => {
+    console.log("connection failed", err);
+})
 
 
 
@@ -22,7 +30,7 @@ connectDB()
 
 
 
-// connecting mongo db using eefi function
+// connecting mongo db using iife function
 
 
 // import mongoose from "mongoose";
